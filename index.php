@@ -14,55 +14,20 @@ if(empty($_GET['year']) && empty($_GET['month'])){
         //  echo $year;
       }
 
-      
-$arr = [
-  "01",
-  "2",
-  "3eeeeeeeeeeeeeeeeeeeeeeeeeee",
-  "4eeeeeeeeee",
-  "5eeeeeeeeeeee",
-  "6eeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
-  "7eeeeeeeeeeeeeeeeeeeeeeeeeee",
-  "8eeeeeeeeeeeeeeeeeeeeeeeeeee",
-  "9eeeeeeeeeeeeeeeeeeeeeeeeeeee",
-  "10eeeeeeeeeeeeeeeeeeeeeeeee",
-  "11eeeeeeeeeeeeeeeeeeeeeeeeeee",
-  "12eeeeeeeeeeeeeeeeeee"
-];
-
-      // ex:date('w',時間戳)
-      // Y - A four digit representation of a year
-      // m - A numeric representation of a month (from 01 to 12)
-      // w - A numeric representation of the day (0 for Sunday, 6 for Saturday)  抓出本月第一天是禮拜幾
-      // t - The number of days in the given month
-      // mktime(hour, minute, second, month, day, year, is_dst) 抓出這個月有幾天
-     
-      // $dayStr = (($i-1*7+$j)) - $firstDayWeek;      
- 
-      // now 
-     
-      // prev
-
-      // next
-      
-      //get year
-    //   $year = $_GET['year'];
-    //   echo $year;
-    //  //get month
-    //   $month = $_GET['month'];
-    //   echo $month;
-
-
-
-      // 抓出現在時間
-      // $now = time();
-    
-      // echo $nowTime;
-      // $year = 2021;
-      // $month = 05;
-      
-      // 抓出這個月的第一天
-      // mktime 會抓出時間搓
+// $arr = [
+//   "Keep on going never give up.",
+//   "Never put off what you can do today until tomorrow.",
+//   "Believe in yourself.",
+//   "You think you can, you can.",
+//   "I can because i think i can.",
+//   "Action speak louder than words.",
+//   "Never say die.",
+//   "Winners do what losers don't want to do.",
+//   "Jack of all trades and master of none.",
+//   "Wasting time is robbing oneself.",
+//   "Judge not from appearances.",
+//   "Whatever is worth doing is worth doing well."
+// ];
 
       // 設定本月第一天
        $firstDayMonth = mktime(0,0,0,$month,01,$year);
@@ -94,42 +59,100 @@ $arr = [
     $monthStr = date('m',$nowStr);
     // echo $month;
     $yearStr = date('Y',$nowStr);
+    $today = date('d',$nowStr);
+    // echo $today;
 
-   
+    switch ($month) {
+      case '01':
+         $month='January';
+        break;
+        case '02':
+          $month='February';
+         break;
+         case '03':
+          $month='March';
+         break;
+         case '04':
+          $month='April';
+         break;
+         case '05':
+          $month='May';
+         break;
+         case '06':
+          $month='June';
+         break;
+         case '07':
+          $month='July';
+         break;
+         case '08':
+          $month='August';
+         break;
+         case '09':
+          $month='September';
+         break;
+         case '10':
+          $month='October';
+         break;
+         case '11':
+          $month='November';
+         break;
+         case '12':
+          $month='December';
+         break;
+      
+      default:
+        # code...
+        break;
+    }
+
+
+
      ?>
-<!DOCTYPE html>
+
+  <?php $changeMonth=str_pad($month, 2, "0", STR_PAD_LEFT);?>
+
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>Monthly Calendar</h1>
-  <?php $changeMonth = str_pad($month,2,"0",STR_PAD_LEFT); ?>
-  <h3><?= $year.'年'.$changeMonth.'月' ?></h3>
-  <h3>
-    <!-- $preYear $preMonth -->
-    <a href="./time.php?year=<?=$preYear;?>&month=<?=$preMonth;?>">pre</a>
-    <a href="./time.php?year=<?=$yearStr;?>&month=<?=$monthStr;?>">now</a>
-    <!-- <a href="./time.php">now</a> -->
-    <a href="./time.php?year=<?=$nextYear.'&month='.$nextMonth?>">next</a>
-  </h3>
- 
-  <table border="1">
-    <tr width="80%">
-      <td>星期日</td>
-      <td>星期一</td>
-      <td>星期二</td>
-      <td>星期三</td>
-      <td>星期四</td>
-      <td>星期五</td>
-      <td>星期六</td>
-    </tr>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="./all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Yomogi&display=swap" rel="stylesheet">
+        <title>Monthly calendar</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row ">
+        <!-- 現在月份區塊 -->
+        <div class="col-lg-4 pre">
+          <div class="preBox monthBox pb-2 mb-5">
+          <a class="backNow " href="./?year=<?=$yearStr;?>&month=<?=$monthStr;?>">Back now
+        <?=$yearStr?>/<?=$monthStr?>/<?=$today?></a>
+            <div class="preSub">
+                <a class="arrowLeft d-lg-none" href="?year=<?=$preYear;?>&month=<?=$preMonth;?>">
+                <i class="fal fa-caret-left"></i></a>
+                <div class="nextMonth  fs-2 pt-1 pb-lg-3 d-inline-block "><?= $changeMonth?></div>
+                <a class="arrowRight d-lg-none" href="?year=<?=$nextYear.'&month='.$nextMonth?>">
+                <i class="fal fa-caret-right"></i></a>
+            </div>
+   
+          <table class=" w-100 ">
+          <!-- <tr width="80% tableTitle">
+              <td>SUN</td>
+              <td>MON</td>
+              <td>TUE</td>
+              <td>WED</td>
+              <td>THU</td>
+              <td>FRI</td>
+              <td>SAT</td>
+          </tr> -->
     <?php for($i=1;$i<=6;$i++) :?>
-    
-    <tr>
+
+    <tr  >
       <?php 
       for($j=1;$j<=7;$j++){
         $dayStr = (($i-1)*7+$j) - $firstDayWeek; //算出每個格子內的日期
@@ -158,14 +181,48 @@ $arr = [
       ?>
     </tr>
     <?php endfor; ?>
-    <tr>
-    <td colspan="7"> <?=$arr[$month-1]; ?></td>  
-   </tr>
-  </table>
+    <!-- <tr>
+      <td colspan="7"> <?=$arr[$month-1]; ?></td>
+    </tr> -->
+  
+          </table>
+        </div>
+          </div>
+         <!-- 圖片跟title的部分 -->
+        <div class="col-lg-4 main ">
+        <h1 class="text-center d-lg-none fs-2"><?= $year?><br>Monthly calendar</h1>
+            <div class="d-none d-lg-block imgBoxPc"></div>
+            <div class="imgBox mb-1 d-lg-none"></div>
+            <div class="div d-flex justify-content-between">
+                <a class="d-none d-lg-block arrowLeft " href="?year=<?=$preYear;?>&month=<?=$preMonth;?>">
+                    <i class="fal fa-caret-left"></i></a>
+                <h1 class="text-center d-none d-lg-inline-block fs-4"><?= $year?> Monthly calendar</h1>
+                <a class="arrowRight d-none d-lg-block" href="?year=<?=$nextYear.'&month='.$nextMonth?>">
+                    <i class="fal fa-caret-right"></i></a>
 
+            </div>
+          
+        </div>
 
-</body>
+    </div>
+
+  
+ <script>
+let num = Math.floor(Math.random()*12)+1;
+// console.log(num);
+let imgBox =document.querySelector('.imgBox').style=`background-image: url(./img/${num}.jpg)`;
+console.log(document.querySelector('.imgBox').style);
+
+let imgBoxPc =document.querySelector('.imgBoxPc').style=`background-image: url(./img/${num}.jpg)`;
+console.log(document.querySelector('.imgBox').style);
+
+ </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  </body>
 </html>
-<?php
 
-?>
+
+
+
+
+
