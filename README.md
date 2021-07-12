@@ -12,12 +12,12 @@ http://220.128.133.15/s1100218/backEnd/php_calender/?year=2021&month=07
 
 ### 畫面呈現
 * pc
-![image](https://github.com/a120220ms25/php_monthlyCalendar/blob/master/php_calender.jpg)
+![image](https://github.com/a120220ms25/php_monthlyCalendar/blob/master/calender_pc.jpg?raw=true)
 
 
 * mobile
 
-![image](https://github.com/a120220ms25/php_monthlyCalendar/blob/master/php_calender_mobile.jpg?raw=true)
+![image](https://github.com/a120220ms25/php_monthlyCalendar/blob/master/calender_mobile.jpg?raw=true)
 
 
 
