@@ -1,0 +1,109 @@
+body{
+  background-color:  #cebfaaa8;
+  text-align: center;
+  font-family: 'Special Elite', cursive;
+}
+/* timeSection */
+.backNow{
+  font-size: 30px;
+  text-decoration: none;
+}
+.timeSection{
+  height: 100vh;
+  margin: 0;
+}
+.timeSection-date{
+  font-size: 30px;
+}
+.timeSection-month-this{
+  font-size: 60px;
+  position: relative;
+}
+.timeSection-now-title{
+  font-size: 30px;
+
+}
+.timeSection-now{
+  position: relative;
+  
+}
+.timeSection-now-content{
+  position: absolute;
+  right: 0;
+  bottom: -30px;
+  left: 0;
+  margin: auto;
+  font-size: 10px;
+  
+}
+.timeSection-now-content a{
+  text-decoration: none;
+  color: black;
+}
+.block{
+  clip-path: polygon(100% 17%, 100% 50%, 50% 100%, 0% 50%);
+  background-color: #cebfaae3;
+  width: 250px;
+  height: 150px;
+  position: absolute;
+  top: -30px;
+  left: 50px;
+  z-index: -1;
+}
+
+/* imgSection */
+.imgSection{
+  width: 50%;
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repear;
+  background-size: cover;
+  filter: sepia(60%);
+  position: relative;
+
+}
+.imgSection-title{
+  color: white;
+  font-size: 50px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  text-shadow: rgb(46, 46, 46) 0px 4px 5px;
+}
+table tr td{
+  font-size: 30px;
+
+}
+
+/* rwd */
+@media screen and (max-width:768px){
+  .timeSection-month-this{
+    height: 200px;
+    font-size: 28px;
+    height: 40px;
+  }
+  .block{
+    display: none;
+  }
+  .imgSectionpc{
+    width: 100%;
+    height: 50vh;
+    background-position: center center;
+    background-repeat: no-repear;
+    background-size: cover;
+    filter: sepia(60%);
+    position: relative;
+  }
+  .imgSection-title{
+    font-size: 28px;
+  }
+  .timeSection{
+    height: 300px;
+  }
+ 
+  table tr td{
+    font-size: 24px;
+  }
+}
